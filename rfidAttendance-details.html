@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>RFID Attendance System — Project Details</title>
+  <meta name="description" content="RFID and Google Sheets based smart attendance system — Abdullah Al Minhaz" />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600" rel="stylesheet"/>
+
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- Template CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    /* small helpers for visual consistency */
+    .icon-list { list-style: none; padding-left: 0; margin: 0; }
+    .icon-list li { margin: 8px 0; font-size:14px; display:flex; align-items:flex-start; gap:10px; }
+    .icon-list i { font-size:18px; margin-top:4px; color: #085a98; flex: 0 0 22px; }
+    .section-title h2 { text-align:center; }
+    .banner-img { width:100%; height:auto; border-radius:8px; object-fit:cover; }
+    .video-text-row .col-lg-6 { display:flex; flex-direction:column; justify-content:center; }
+  </style>
+</head>
+
+<body>
+
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <header id="header" class="d-flex flex-column justify-content-center"></header>
+
+  <main id="main">
+    <!-- ======= Project Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Title + hardware-focused banner -->
+        <div class="row">
+          <div style="text-align:left; width:45%; margin-top:5%;">
+            <h2 style="color:#085a98;">RFID & Google Sheets — Smart Attendance</h2>
+            <h4 style="font-weight:400;">NodeMCU (ESP8266) + RC522 · Real-time logging to Google Sheets</h4>
+            <p style="margin-top:6px; font-size:14px;">Aug 2025 • Engineering Project Design Course — JSTU</p>
+          </div>
+
+          <div style="width:55%; text-align:center;">
+            <!-- primary file path provided in workspace -->
+            <img src="assets/img/RFIDBanner.jpg" alt="RFID hardware banner" class="banner-img" data-aos="zoom-in" style="width:85%; margin-top:5%;">
+            <!-- fallback to assets path when deployed to your site -->
+            <noscript>
+              <img src="assets/img/RFIDBanner.jpg" alt="RFID hardware banner" class="banner-img" style="width:85%; margin-top:5%;">
+            </noscript>
+          </div>
+        </div>
+
+        <!-- High-level overview -->
+        <div class="icon-box iconbox-teal" data-aos="zoom-in" data-aos-delay="150" style="width:100%; margin-top:22px; padding:22px;">
+          <h2 style="font-family:'Poppins',sans-serif; font-size:22px; color:#f8893f; margin-bottom:10px; text-align:left;">Project Overview</h2>
+          <p style="text-align:justify; font-size:14px;">
+            A compact, portable attendance system that identifies cardholders using an RC522 RFID reader and logs
+            name, date, and time instantly to a Google Sheet via Wi-Fi. The NodeMCU (ESP8266) hosts the networking code,
+            fetches time via NTP for accurate timestamps, and pushes attendance records to a Google Apps Script endpoint.
+            The local LCD provides instant feedback to users while the cloud sheet stores records for reporting and analysis.
+          </p>
+        </div>
+
+        <!-- Practical demo: video + description -->
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Practical Demonstration</h2>
+        </div>
+
+        <div class="row video-text-row" data-aos="fade-up" data-aos-delay="160" style="margin-top:18px;">
+          <div class="col-lg-6" style="padding-right:30px;">
+            <p style="text-align:justify; font-size:14px;">
+              The demo shows card detection flow, LCD feedback, successful HTTP logging, and timestamp verification.
+              The system handles URL encoding of names, retries on failed network attempts, and displays clear success/error messages.
+              Use the video to inspect read range, response latency, and how the NodeMCU handles intermittent Wi-Fi.
+            </p>
+            <p style="font-size:13px; color:#555;">
+              <strong>Practical notes:</strong> The system is designed to be lightweight and extendable — later additions can include alerting, RFID database management, or face-ID integration.
+            </p>
+          </div>
+
+          <div class="col-lg-6 text-center">
+            <!-- Embedded YouTube (user video) -->
+            <iframe width="100%" height="340" style="border-radius:8px;"
+              src="https://www.youtube.com/embed/YE0DH_b-prM"
+              title="RFID Attendance Practical Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <p style="margin-top:10px;">
+              <a href="https://youtu.be/YE0DH_b-prM?si=ZZ5Urmc6jXNxnUgu" target="_blank">Watch on YouTube</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Features (icon boxes) -->
+        <div class="section-title" style="font-size:20px; margin-top:30px;">
+          <h2>Key Features</h2>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-4 col-md-6 mt-3" data-aos="zoom-in">
+            <div class="icon-box iconbox-blue">
+              <div class="icon"><i class="bx bx-id-card"></i></div>
+              <h4>RFID Identification</h4>
+              <p>Reads UID and maps card IDs to user names for instant recognition.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-3" data-aos="zoom-in" data-aos-delay="80">
+            <div class="icon-box iconbox-yellow">
+              <div class="icon"><i class="bx bx-wifi"></i></div>
+              <h4>Cloud Logging</h4>
+              <p>HTTP GET to Google Apps Script writes name, date, and accurate NTP timestamp to Sheets.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-3" data-aos="zoom-in" data-aos-delay="160">
+            <div class="icon-box iconbox-orange">
+              <div class="icon"><i class="bx bx-laptop"></i></div>
+              <h4>Local Feedback</h4>
+              <p>I2C LCD displays the cardholder name and success/failure information instantly.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware & Software (icon bullets) -->
+        <div class="icon-box iconbox-blue" data-aos="zoom-in" data-aos-delay="200" style="margin-top:28px; padding:22px;">
+          <h4 style="color:#085a98;">Hardware & Software</h4>
+          <div class="row" style="margin-top:12px;">
+            <div class="col-lg-6">
+              <h6>Hardware</h6>
+              <ul class="icon-list">
+                <li><i class="bx bx-chip"></i> NodeMCU (ESP8266) — network & controller</li>
+                <li><i class="bx bx-id-card"></i> RFID RC522 module</li>
+                <li><i class="bx bx-screen"></i> LiquidCrystal I2C LCD (16×2)</li>
+                <li><i class="bx bx-battery"></i> 5V power supply / battery (portable option)</li>
+                <li><i class="bx bx-wrench"></i> Breadboard / PCB and wiring harness</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+              <h6>Software & Libraries</h6>
+              <ul class="icon-list">
+                <li><i class="bx bx-code"></i> Arduino IDE (C/C++)</li>
+                <li><i class="bx bx-cloud"></i> Google Apps Script for Sheets endpoint</li>
+                <li><i class="bx bx-timer"></i> NTPClient library for accurate time</li>
+                <li><i class="bx bx-network-chart"></i> WiFiClient / HTTP GET logic + URL encoding</li>
+                <li><i class="bx bx-tools"></i> Small retry logic & watchdog to manage memory</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Challenges & Learnings -->
+        <div class="icon-box iconbox-red" data-aos="zoom-in" data-aos-delay="220" style="margin-top:26px; padding:22px;">
+          <h4>Challenges & Learning</h4>
+          <p style="text-align:justify;">
+            The main obstacles were URL encoding of names, transient network failures, and tight memory constraints on the ESP8266.
+            Solving these taught practical lessons about HTTP handling, Google Apps Script backend flows, time synchronization, and
+            memory-aware programming on microcontrollers.
+          </p>
+        </div>
+
+        <!-- Applications -->
+        <div class="icon-box iconbox-orange" data-aos="zoom-in" data-aos-delay="250" style="margin-top:26px; padding:22px;">
+          <h4>Applications</h4>
+          <ul class="icon-list" style="margin-top:12px;">
+            <li><i class="bx bx-home" style="color:#f8893f;"></i> Classroom and lab attendance automation</li>
+            <li><i class="bx bx-building" style="color:#f8893f;"></i> Office / lab entry logging and audit</li>
+            <li><i class="bx bx-library" style="color:#f8893f;"></i> Library check-in systems</li>
+            <li><i class="bx bx-briefcase" style="color:#f8893f;"></i> Events & workshops attendance tracking</li>
+            <li><i class="bx bx-shield" style="color:#f8893f;"></i> Access control with simple logging (can be expanded)</li>
+          </ul>
+        </div>
+
+        <!-- Team, Contributors & Supervisor -->
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Team, Contributors & Supervisor</h2>
+        </div>
+
+        <div class="row" style="margin-top:12px;" data-aos="zoom-in" data-aos-delay="120">
+          <div class="col-md-6">
+            <div class="icon-box iconbox-blue">
+              <h4>Contributors</h4>
+              <ul class="icon-list" style="margin-top:8px;">
+                
+                <li><i class="bx bx-user"></i> <strong>Alim Hossain Salman</strong> — Contributor</li>
+                <li><i class="bx bx-user"></i> <strong>Md Jakirul Islam</strong> — Contributor</li>
+                <li><i class="bx bx-user"></i> <strong>Md Mojnu Miah</strong> — Contributor</li>
+                <li><i class="bx bx-user-voice"></i> <strong>Abdullah Al Minhaz</strong> — Project Lead</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="icon-box iconbox-teal">
+              <h4>Supervisor</h4>
+              <p style="margin-top:8px;"><i class="bx bx-chalkboard" style="margin-right:8px;"></i>
+                <strong>Md. Amimul Ihsan</strong><br />
+                Lecturer, Department of EEE, Jamalpur Science & Technology University (JSTU)
+              </p>
+              <p style="font-size:13px; color:#555;">Supervised the project as part of the Engineering Project Design course and provided guidance on deployment and evaluation.</p>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Certificates & assets -->
+<!--======= Comment Starting 
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Certificates & Evidence</h2>
+        </div>
+
+        <div class="row" style="margin-top:12px;">
+          <div class="col-md-6 text-center" data-aos="zoom-in">
+            <img src="assets/img/RFID_cert1.png" alt="Certificate 1" class="img-fluid" style="border-radius:6px;">
+            <p style="margin-top:8px;">Project Certificate / Exhibition</p>
+          </div>
+          <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="120">
+            <img src="assets/img/RFID_cert2.png" alt="Certificate 2" class="img-fluid" style="border-radius:6px;">
+            <p style="margin-top:8px;">Course Acknowledgement</p>
+          </div>
+        </div>
+======= Comment Ending -----> 
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container text-center">
+      <h4>RFID & Google Sheets — Smart Attendance</h4>
+      <p>Part of Engineering Project Design Course — JSTU</p>
+      <div class="copyright" style="margin-top:8px;">
+        &copy; Abdullah Al Minhaz
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    if (window.AOS) { AOS.init({ duration: 800, once: true }); }
+  </script>
+</body>
+</html>

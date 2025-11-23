@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+  <title>Simple Line Follower Robot — Project Details</title>
+  <meta content="Line Follower Robot project — Abdullah Al Minhaz" name="description" />
+  <meta content="" name="keywords" />
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet" />
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+  <!-- Main CSS (same as AIBIT) -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+  <style>
+    /* Small extra styles for icon-bullet lists */
+    .icon-list { list-style: none; padding-left: 0; margin: 0; }
+    .icon-list li { margin: 8px 0; font-size: 14px; display:flex; align-items:flex-start; gap:10px; }
+    .icon-list i { font-size: 20px; margin-top:4px; color: #085a98; flex: 0 0 24px; }
+    .section-title h2 { text-align:center; }
+    /* ensure iframe & text column align vertically similar to Rajagopal */
+    .video-text-row .col-lg-6 { display: flex; flex-direction: column; justify-content: center; }
+  </style>
+</head>
+
+<body>
+
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex flex-column justify-content-center"></header>
+
+  <main id="main">
+
+    <!-- ======= Services / Project Section (AIBIT structure) ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Title Row -->
+        <div class="row">
+          <div style="text-align: left; width:40%; margin-top:5%;">
+            <h2 style="color:#085a98;">Simple Line Follower Robot</h2>
+            <h3 style="font-weight:400;">Autonomous Robot — IR sensors, Arduino & Embedded C</h3>
+            <p style="margin-top:6px; font-size:14px;">Feb 2023 – Jun 2023 • 1st Year C Programming Lab Assessment</p>
+          </div>
+
+          <div style="width:60%; text-align:center;">
+            <picture style="margin-left: 5%;">
+              <img src="assets/img/LFRbanner.jpeg" alt="Line Follower Robot" style="width:80%; height:auto; padding-top: 10%; border-radius:8px;">
+            </picture>
+          </div>
+        </div>
+
+        <!-- Intro / high-level summary -->
+        <div class="icon-box iconbox-teal" data-aos="zoom-in" data-aos-delay="200" style="width:100%; margin-top: 20px; padding: 20px;">
+          <h2 style="font-family: 'Poppins', sans-serif; font-size:22px; color:#f8893f; margin-bottom:12px; text-align:left;">Project Overview</h2>
+          <p style="text-align:justify; font-size:14px;">
+            This project implements a compact line-following robot that uses two infrared (IR) sensors to detect a black track on
+            a white surface. The Arduino Uno processes sensor data in real time and controls two DC motors via an L298N driver.
+            The logic uses simple decision rules and PWM adjustments to maintain alignment with the line. This project focuses on
+            practical embedded systems skills: sensor interfacing, motor control, calibration, and basic autonomous navigation.
+          </p>
+        </div>
+
+        <!-- Rajagopal-style side-by-side video + description -->
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Practical Line Following Test</h2>
+        </div>
+
+        <div class="row video-text-row" data-aos="fade-up" data-aos-delay="150" style="margin-top:18px;">
+          <!-- LEFT: textual explanation (vertically centered) -->
+          <div class="col-lg-6" style="padding-right:30px;">
+            <p style="text-align:justify; font-size:14px;">
+              This practical demonstration shows the Line Follower Robot during real-time testing. The two IR sensors continuously
+              compare reflectance from the track and background. When a deviation is detected, the Arduino alters motor PWM to steer
+              back onto the path. Observe how the robot handles curves, slight misalignments and speed variations — the steady corrections
+              indicate stable sensor calibration and robust control logic.
+              <br><br>
+              This experiment validates responsiveness, mechanical tuning, and the precision of sensor thresholds used in the final design.
+              Use this video to evaluate turning radius, correction latency and general path-following reliability.
+            </p>
+          </div>
+
+          <!-- RIGHT: clean embedded YouTube (full-width within column) -->
+          <div class="col-lg-6 text-center">
+            <iframe width="100%" height="340" style="border-radius:8px;"
+              src="https://www.youtube.com/embed/Pf5dvanOz20"
+              title="Line Follower Robot Demo"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+            <p style="margin-top:12px;">
+              <a href="https://youtube.com/shorts/Pf5dvanOz20?si=YiEMczTMkXG77kv8" target="_blank">Video Credit: Abdullah Al Minhaz</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Key Features (icon boxes) -->
+        <div class="section-title" style="font-size:20px; margin-top:30px;">
+          <h2>Key Features</h2>
+        </div>
+
+        <div class="row" style="margin-top:10px;">
+          <div class="col-lg-3 col-md-6 mt-3" data-aos="zoom-in">
+            <div class="icon-box iconbox-orange">
+              <div class="icon"><i class="bx bx-bot"></i></div>
+              <h4>IR Sensor Tracking</h4>
+              <p>Two IR sensors detect line contrast for fast decisions.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-3" data-aos="zoom-in" data-aos-delay="80">
+            <div class="icon-box iconbox-blue">
+              <div class="icon"><i class="bx bx-chip"></i></div>
+              <h4>Embedded Control</h4>
+              <p>Arduino processes readings and runs the control logic.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-3" data-aos="zoom-in" data-aos-delay="160">
+            <div class="icon-box iconbox-yellow">
+              <div class="icon"><i class="bx bx-cog"></i></div>
+              <h4>Motor Interface</h4>
+              <p>L298N enables forward/reverse & PWM speed control.</p>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-3" data-aos="zoom-in" data-aos-delay="240">
+            <div class="icon-box iconbox-red">
+              <div class="icon"><i class="bx bx-street-view"></i></div>
+              <h4>Autonomous Navigation</h4>
+              <p>Real-time corrections keep the robot aligned on track.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hardware & Software (use icon bullets for "amazing bullets") -->
+        <div class="icon-box iconbox-blue" data-aos="zoom-in" data-aos-delay="200" style="margin-top:28px; padding:22px;">
+          <h4 style="color:#085a98;">Hardware & Software</h4>
+          <div class="row" style="margin-top:12px;">
+            <div class="col-lg-6">
+              <h6>Hardware</h6>
+              <ul class="icon-list">
+                <li><i class="bx bx-chip"></i> 2 × IR Line Sensors (reflectance type)</li>
+                <li><i class="bx bx-cog"></i> Arduino Uno / Compatible MCU</li>
+                <li><i class="bx bx-bolt-circle"></i> L298N Motor Driver</li>
+                <li><i class="bx bx-car"></i> Geared DC Motors & Wheels</li>
+                <li><i class="bx bx-battery"></i> Rechargeable Battery Pack</li>
+                <li><i class="bx bx-shape-square"></i> Chassis, Mounts & Wiring</li>
+              </ul>
+            </div>
+
+            <div class="col-lg-6">
+              <h6>Software</h6>
+              <ul class="icon-list">
+                <li><i class="bx bx-code"></i> Arduino IDE (Embedded C)</li>
+                <li><i class="bx bx-terminal"></i> Real-time sensor read + conditional logic</li>
+                <li><i class="bx bx-git-branch"></i> PWM motor control & direction switching</li>
+                <li><i class="bx bx-slider-alt"></i> Optional PID-style tuning for smoother turns</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Applications (with Industrial Applications appended as requested) -->
+        <div class="icon-box iconbox-orange" data-aos="zoom-in" data-aos-delay="250" style="margin-top:26px; padding:22px;">
+          <h4>Applications</h4>
+          <ul class="icon-list" style="margin-top:12px;">
+            <li><i class="bx bx-bot" style="color:#f8893f;"></i> Robotics training & lab assignments</li>
+            <li><i class="bx bx-map-pin" style="color:#f8893f;"></i> Demonstrations of autonomous navigation basics</li>
+            <li><i class="bx bx-trophy" style="color:#f8893f;"></i> Entry-level robotics competitions and showcases</li>
+            <li><i class="bx bx-extension" style="color:#f8893f;"></i> As a prototype base for more advanced autonomous platforms</li>
+            <li>
+              <i class="bx bx-factory" style="color:#f8893f;"></i>
+              <strong>Industrial Applications:</strong>
+              AGVs (Automated Guided Vehicles), warehouse line-following robots, material transport systems, production conveyor-followers,
+              textile or printing-line tracking helpers and simple on-floor logistics robots used in light manufacturing.
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contributors & Instructor -->
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Contributors & Instructor</h2>
+        </div>
+
+        <div class="row" style="margin-top:10px;" data-aos="zoom-in" data-aos-delay="120">
+          <div class="col-md-6">
+            <div class="icon-box iconbox-blue">
+              <h4>Contributors</h4>
+              <ul class="icon-list">
+                <li><i class="bx bx-user"></i> <strong>Md Umar Faruk</strong> — Contributor</li>
+                <li><i class="bx bx-user"></i> <strong>Alim Hossain Salman</strong> — Contributor</li>
+                <li><i class="bx bx-user-voice"></i> <strong>Abdullah Al Minhaz</strong> — Project Lead</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="icon-box iconbox-teal">
+              <h4>Course Instructor</h4>
+              <p style="margin-top:8px;"><i class="bx bx-chalkboard" style="margin-right:8px;"></i> <strong> Md Mahfuzul Haque, Lecturer, EEE, JSTU</strong></p>
+              <p style="font-size:13px; color:#555;">Supervised the project as part of the C Programming Lab course and provided assessment guidelines and feedback.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Certificates showcase (optional images) -->
+        <div class="section-title" style="margin-top:28px;">
+          <h2>Certificates & Showcases</h2>
+        </div>
+
+        <div class="row" style="margin-top:12px;">
+          <div class="col-md-6 text-center" data-aos="zoom-in">
+            <img src="assets/img/testimonials\participation in Robot Exhibition in National Conference on Robotics and IoT.png" alt="Certificate 1" class="img-fluid" style="border-radius:6px;">
+            <p style="margin-top:8px;">Robotics Exhibition Participation</p>
+          </div>
+          <div class="col-md-6 text-center" data-aos="zoom-in" data-aos-delay="120">
+            <img src="assets/img/testimonials/Participation in Project Showcase.png" alt="Certificate 2" class="img-fluid" style="border-radius:6px;">
+            <p style="margin-top:8px;">Project Showcase — Dept. EEE</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= Footer (keeps credit, no download button) ======= -->
+  <footer id="footer">
+    <div class="container">
+      <h4>Simple Line Follower Robot — Project</h4>
+      <p>Designed & implemented as part of 1st Year C Programming Lab Assessment</p>
+
+      <div class="social-links" style="margin-top:10px;">
+        <!-- optional social icons -->
+      </div>
+
+      <div class="copyright" style="margin-top:12px;">
+        &copy; Abdullah Al Minhaz
+      </div>
+
+      <div class="credits" style="margin-top:6px;">
+        <a href="/mnt/data/AIBIT-details.html" target="_blank">Reference: AIBIT-details.html</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/typed.js/typed.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    // initialize AOS (if not already initialized in main.js)
+    if (window.AOS) {
+      AOS.init({ duration: 800, once: true });
+    }
+  </script>
+</body>
+
+</html>

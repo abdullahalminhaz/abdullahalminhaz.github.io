@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Self-Driving Car — Project Details</title>
+
+  <!-- Favicons & fonts (same as your template) -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600" rel="stylesheet"/>
+
+  <!-- Vendor CSS (same as your site) -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- Your site CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    /* Advanced, eye-catching enhancements while using your template styles */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 3.5rem;
+    }
+    .hero .text h1 { font-size: 2.1rem; color: #085a98; margin-bottom: 0.4rem; }
+    .hero .text p.lead { font-size: 1rem; color: #444; margin-bottom: 1rem; }
+    .hero .banner { width:100%; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+    .feature-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; }
+    .feature { padding:16px; border-radius:10px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+    .feature h5 { margin-bottom:8px; color:#085a98; }
+    .section-contrast { background: linear-gradient(180deg, #fff 0%, #fafafa 100%); padding:18px; border-radius:10px; }
+    .icon-list { list-style:none; padding-left:0; margin:0; }
+    .icon-list li { margin:8px 0; display:flex; gap:10px; align-items:flex-start; }
+    .icon-list i { color:#f8893f; margin-top:3px; }
+
+    .video-row { display:grid; grid-template-columns: 1fr 1fr; gap:1.25rem; margin-top:1rem; }
+    .video-card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 8px 18px rgba(0,0,0,0.06); }
+
+    .arch-image { width:100%; border-radius:8px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+    @media (max-width: 992px){
+      .hero { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+      .video-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <main id="main">
+    <div class="container" data-aos="fade-up">
+
+      <!-- HERO (big, premium) -->
+      <section class="hero" data-aos="fade-up" data-aos-duration="700">
+        <div class="text">
+          <h1>Self-Driving Car (SDC)</h1>
+          <p class="lead">
+            A camera-first autonomous vehicle prototype built with Raspberry Pi & Camera Module V3, OpenCV-based lane
+            perception, and YOLOv8-based stop-sign detection. This project shows a full perception → decision → control loop,
+            validated in real-world tests and prepared for multi-sensor scaling (LiDAR, mapping, SLAM).
+          </p>
+          <!-- Funding Badge -->
+          <div style="margin-top:15px; background:#e8f5ff; padding:12px 15px; border-left:4px solid #085a98; border-radius:6px;">
+            <strong>Funded by ICT Division (ICT Ministry)</strong> · Innovation Project Grant 2023–24 ·  
+            <strong>500,000 BDT</strong> (First Release: <strong>300,000 BDT</strong>)
+          </div>
+          <div style="margin-top:18px;">
+            <strong>Highlights:</strong>
+            <ul class="icon-list" style="margin-top:8px;">
+              <li><i class="bx bx-check"></i> Lane detection & U-turn logic using discrete Python control</li>
+              <li><i class="bx bx-check"></i> Stop-sign detection using YOLOv8n — 5s full stop behavior</li>
+              <li><i class="bx bx-check"></i> CPU-only inference on resource-limited hardware (no GPU)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <!-- Primary local banner path supplied -->
+          <img src="assets/img/SDCbanner.png" alt="SDC architecture banner" class="banner" />
+          <!-- fallback for deployment -->
+          <noscript><img src="assets/img/SDCbanner.jpg" alt="SDC banner" class="banner" /></noscript>
+        </div>
+      </section>
+
+      <!-- Architecture + Quick Overview -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <div class="section-contrast" style="padding:18px;">
+          <h3 style="color:#085a98; margin-bottom:8px;">System Architecture (Perception → Cognition → Control → Actuation)</h3>
+          <p style="margin-bottom:12px;">
+            Modern autonomous vehicles follow a multi-stage pipeline: <strong>data acquisition</strong> (cameras, LiDAR, radar),
+            <strong>perception</strong> (detection, segmentation), <strong>localization</strong> (GPS/IMU/SLAM), <strong>scene cognition</strong>,
+            <strong>decision making</strong> and <strong>control</strong>. The uploaded architecture figure (below) is used as the
+            reference design for the project.
+          </p>
+
+          <img src="assets\img\autodriving.png"" alt="Autonomous driving architecture" class="arch-image" />
+          <p style="font-size:13px; color:#666; margin-top:8px;">Fig. 1 — Autonomous driving system architecture (Perception, Localization, Decision, Control, Actuation).</p>
+        </div>
+      </section>
+
+      <!-- Technical Feature Grid -->
+      <section style="margin-top:28px;">
+        <div class="feature-grid" data-aos="fade-up">
+          <div class="feature">
+            <h5>Perception — Camera-first</h5>
+            <p style="font-size:13px; color:#444;">
+              Lane detection: OpenCV pipeline (ROI mask, Canny, Hough/polynomial fit). Lane-end detection via vanishing-point
+              analysis. Real-time inference on PiCamera2 frames.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h5>Stop Sign & Object Detection (YOLOv8)</h5>
+            <p style="font-size:13px; color:#444;">
+              We fine-tuned a YOLOv8n model to reliably detect stop signs and other objects. When a stop sign is detected the
+              vehicle performs a controlled stop for 5 seconds and then resumes. Achieved on CPU-only hardware (no GPU), demonstrating
+              efficient model selection and optimization.
+            </p>
+          </div>
+
+          <div class="feature">
+            <h5>Decision & Control</h5>
+            <p style="font-size:13px; color:#444;">
+              Discrete Python control logic for U-turns and lane-following. Motor actuation via L298N driver with closed-loop
+              steering corrections (PID-style heuristics) for stable tracking.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Videos (side-by-side cards) -->
+      <section class="video-row" data-aos="fade-up" style="margin-top:26px;">
+        <div class="video-card">
+          <h5>Lane Detection, Lane-End Detection & U-turn (Discrete Control)</h5>
+          <div style="position:relative;padding-top:56.25%;">
+            <iframe src="https://www.youtube.com/embed/DjgE18lsThM" style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:8px;" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p style="font-size:13px; color:#666; margin-top:8px;">This video demonstrates lane detection, end-of-lane handling and discrete motor control logic to execute a safe U-turn.</p>
+        </div>
+
+        <div class="video-card">
+          <h5>Stop Sign Detection & 5s Stop — YOLOv8n (CPU)</h5>
+          <div style="position:relative;padding-top:56.25%;">
+            <iframe src="https://www.youtube.com/embed/M3rIWh-HW0M" style="position:absolute;left:0;top:0;width:100%;height:100%;border-radius:8px;" frameborder="0" allowfullscreen></iframe>
+          </div>
+          <p style="font-size:13px; color:#666; margin-top:8px;">Demonstrates stop-sign detection using YOLOv8n and a full 5 second stop without GPU acceleration.</p>
+        </div>
+      </section>
+
+      <!-- Deep-dive sections -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 style="color:#085a98;">YOLOv8 Integration & Optimization</h4>
+            <p style="color:#444;">
+              We selected YOLOv8n for its balanced accuracy vs compute cost. To run on Pi-class hardware without GPU, we:
+            </p>
+            <ul class="icon-list">
+              <li><i class="bx bx-right-arrow-alt"></i> Quantized the model where possible and used optimized CPU BLAS.</li>
+              <li><i class="bx bx-right-arrow-alt"></i> Reduced input resolution and applied selective ROI cropping to lower ops.</li>
+              <li><i class="bx bx-right-arrow-alt"></i> Employed frame-skip inference (infer every Nth frame) to maintain control responsiveness.</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6">
+            <h4 style="color:#085a98;">Lane Detection & Discrete Control</h4>
+            <p style="color:#444;">
+              The lane pipeline is a classical CV stack — fast and interpretable. It drives the vehicle with discrete decision states:
+            </p>
+            <ul class="icon-list">
+              <li><i class="bx bx-right-arrow-alt"></i> <strong>Follow</strong> — stay centered between lane boundaries</li>
+              <li><i class="bx bx-right-arrow-alt"></i> <strong>Lane-end</strong> — detect missing lanes, slow down and prepare turn</li>
+              <li><i class="bx bx-right-arrow-alt"></i> <strong>U-turn</strong> — sequence of reverse/steer commands triggered by state machine</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experiments & Measured Results -->
+      <section style="margin-top:26px;" data-aos="fade-up">
+        <div class="section-contrast" style="padding:16px;">
+          <h4 style="color:#085a98;">Experiments & Observed Behavior</h4>
+          <p style="color:#444;">
+            • Stop sign detection worked reliably in controlled lighting with YOLOv8n, but accuracy decreased under strong glare or heavy shadow. <br>
+            • Lane detection is fast and robust on consistent surfaces; however abrupt lighting transitions (sunlight patches) create false positives. <br>
+            • CPU-only YOLO inference average latency: ~120–300 ms per frame depending on resolution — acceptable when combined with frame-skipping.
+          </p>
+        </div>
+      </section>
+
+      <!-- Challenges -->
+      <section style="margin-top:22px;" data-aos="fade-up">
+        <h4 style="color:#f04e4e;">Key Challenges</h4>
+        <ul class="icon-list">
+          <li><i class="bx bx-bug"></i> Lighting & shadow sensitivity for both lane and sign detection.</li>
+          <li><i class="bx bx-cpu"></i> No GPU: heavy models (segmentation, large detectors) become impractical without hardware acceleration.</li>
+          <li><i class="bx bx-tools"></i> Mechanical vibrations and camera alignment affect detection consistency.</li>
+          <li><i class="bx bx-database"></i> Dataset diversity needed for robust stop sign detection in varied environments.</li>
+        </ul>
+      </section>
+
+      <!-- Roadmap / Future Improvements -->
+      <section style="margin-top:26px;" data-aos="fade-up">
+        <h3 style="color:#085a98;">Roadmap & Real-world Scaling</h3>
+
+        <div style="margin-top:12px;">
+          <ol>
+            <li><strong>Short-term (0–6 months):</strong> Add low-cost LiDAR (RPLIDAR), IMU fusion, and map small test tracks with SLAM for more stable localization.</li>
+            <li><strong>Mid-term (6–18 months):</strong> Integrate sensor fusion (camera + LiDAR + IMU) for robust perception and directional mapping; implement HD local mapping and Pure Pursuit path tracking.</li>
+            <li><strong>Long-term (18+ months):</strong> Scale prototype to a full outdoor platform, adopt ROS2, accelerate models with Edge TPU or NVIDIA Jetson, and evaluate safety features toward production-level behavior (Tesla/Waymo style behavior planning).</li>
+          </ol>
+
+          <p style="margin-top:10px; color:#444;">
+            Real-world companies (Tesla, Waymo, Cruise) combine dense sensor suites, massive datasets, and long-run simulation loops to achieve robustness.
+            Our path mirrors that pattern: start with camera-first perception and efficient models (YOLOv8n) on small vehicles, then progressively add LiDAR, mapping,
+            and hardware acceleration to move from prototype to full-scale autonomous systems.
+          </p>
+        </div>
+      </section>
+
+      <!-- Credits -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">Project Credits & Funding</h4>
+
+        <div class="section-contrast" style="padding:18px;">
+          <h5 style="color:#f8893f;">Funding Information</h5>
+          <p>
+            Funded by <strong>ICT Division, Ministry of ICT (Bangladesh)</strong> under the  
+            <strong>Innovation Project Grant 2023–24</strong>.<br>
+            Total Grant: <strong>500,000 BDT</strong><br>
+            First Release: <strong>300,000 BDT (FY 2023–24)</strong>
+          </p>
+
+          <h5 style="color:#085a98;margin-top:10px;">Supervisor</h5>
+          <p><strong>Md. Mahfuzul Haque</strong>, Lecturer, Dept. of EEE, JSTU</p>
+
+          <h5 style="color:#085a98;margin-top:10px;">Contributors</h5>
+          <ul class="icon-list">
+            <li><i class="bx bx-user"></i> Aman Ullah</li>
+            <li><i class="bx bx-user"></i> Rabeya Khan</li>
+            <li><i class="bx bx-user"></i> Nadira Farjana</li>
+            <li><i class="bx bx-user-pin"></i> Abdullah Al Minhaz (Lead Developer)</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" style="margin-top:36px;">
+    <div class="container text-center">
+      <h4>Self-Driving Car (SDC)</h4>
+      <p>Applied Deep Learning & Computer Vision • Prototype & Roadmap</p>
+      <div style="margin-top:6px;color:#666;">© Abdullah Al Minhaz</div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    if (window.AOS) AOS.init({ duration: 800, once: true });
+  </script>
+</body>
+</html>

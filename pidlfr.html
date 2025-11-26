@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PID Line Follower Robot — Project Details</title>
+
+  <!-- Favicons & fonts (same as your template) -->
+  <link href="assets/img/favicon.png" rel="icon" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Poppins:300,400,500,600" rel="stylesheet"/>
+
+  <!-- Vendor CSS (same as your site) -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+  <!-- Your site CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <!-- MathJax for inline formulas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+  <style>
+    /* Blended advanced styling (matches SDC advanced look + AIBIT detail blocks) */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-top: 3.0rem;
+    }
+    .hero .text h1 { font-size: 2.05rem; color: #085a98; margin-bottom: 0.3rem; }
+    .hero .text p.lead { font-size: 1rem; color: #444; margin-bottom: 1rem; }
+    .hero .banner { width:100%; border-radius: 12px; object-fit: cover; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+
+    .section-contrast { background: linear-gradient(180deg,#fff,#fafafa); padding:18px; border-radius:10px; }
+    .icon-list { list-style:none; padding-left:0; margin:0; }
+    .icon-list li { display:flex; gap:10px; margin:8px 0; align-items:flex-start; font-size:14px; }
+    .icon-list i { color:#f8893f; margin-top:4px; }
+
+    .video-card { background:#fff; border-radius:10px; padding:14px; box-shadow:0 8px 18px rgba(0,0,0,0.06); }
+    .feature-grid { display:grid; grid-template-columns: repeat(3,1fr); gap:1rem; margin-top:1rem; }
+
+    /* small responsive fixes */
+    @media (max-width: 992px){
+      .hero { grid-template-columns: 1fr; }
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    /* nice blockquote for TIPs */
+    .tip {
+      background: linear-gradient(90deg,#fff9ec,#fff);
+      border-left: 4px solid #ffe0b2;
+      padding: 12px 14px;
+      border-radius: 8px;
+      color: #5a4a27;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+
+  <main id="main">
+    <div class="container" data-aos="fade-up">
+
+      <!-- HERO -->
+      <section class="hero" data-aos="fade-up" data-aos-duration="800">
+        <div class="text" data-aos="fade-right">
+          <h1>PID Line-Following Robot (PID-LFR)</h1>
+          <p class="lead">
+            A PID-controlled line follower built in first year for the C Programming lab assessment — refined into a robust
+            platform that follows complex tracks using real-time camera feedback and PID steering corrections.
+          </p>
+
+          <!-- Funding / self-funded badge -->
+          <div style="margin-top:12px; background:#eef7f9; padding:10px 14px; border-left:4px solid #085a98; border-radius:8px;">
+            <strong>Project Funding:</strong> Self-funded project
+          </div>
+
+          <div style="margin-top:14px;">
+            <strong>Quick highlights</strong>
+            <ul class="icon-list" style="margin-top:8px;">
+              <li><i class="bx bx-check"></i> PID steering to reduce steady-state error and oscillation</li>
+              <li><i class="bx bx-check"></i> Works on complex curves though not fully tuned yet</li>
+              <li><i class="bx bx-check"></i> Implemented with Arduino/C motor control and camera preprocessing</li>
+            </ul>
+          </div>
+        </div>
+
+        <div data-aos="fade-left">
+          <!-- reuse LFR banner to keep asset usage simple -->
+          <img src="assets/img/LFRbanner.jpeg" alt="PID Line Follower Banner" class="banner" />
+        </div>
+      </section>
+
+      <!-- HIGH LEVEL DESCRIPTION -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <div class="section-contrast">
+          <h3 style="color:#085a98; margin-bottom:8px;">Overview</h3>
+          <p style="text-align:justify; font-size:14px;">
+            PID-LFR is a practical demonstration of closed-loop control applied to mobile robotics. The project merges classical
+            control theory with real-time perception to keep the robot centered on a guide-line. The controller continuously
+            computes the lateral error and applies proportional, integral and derivative corrections to steering commands.
+            While the prototype is part of an academic assessment, its architecture reflects best practices used in industry:
+            modular perception, low-latency control loop, and explicit tuning strategy for stability and responsiveness.
+          </p>
+        </div>
+      </section>
+
+    <!-- PRACTICAL PID LINE FOLLOWING TEST -->
+    <section id="practical-test" class="about mt-5" data-aos="fade-up">
+    <div class="section-title">
+        <h2>PRACTICAL PID LINE FOLLOWING TEST</h2>
+        <span class="section-divider"></span>
+    </div>
+
+    <div class="row content">
+        <!-- Left side text -->
+        <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-right" style="font-size:15px; text-align:justify;">
+        This practical demonstration shows the PID-controlled Line Follower Robot during complex real-time testing.
+        Instead of simple left-right decisions, the PID controller continuously computes a steering correction based on
+        proportional, integral, and derivative terms.
+
+        <br><br>
+
+        The robot attempts to stay centered on the track even during curves, sharp turns, and slight sensor noise.
+        Although the PID gains are not fully tuned yet, the robot successfully maintains stability and reduces
+        oscillations. You can observe how the derivative term helps dampen overshoot during tight curves, while the
+        proportional gain keeps the robot responsive.
+
+        <br><br>
+
+        This experiment validates control-loop responsiveness, turning radius behavior, error stability, and the overall
+        effectiveness of PID under varying lighting and surface conditions.
+        </div>
+
+        <!-- Right side video -->
+        <div class="col-lg-6" data-aos="fade-left">
+        <iframe width="100%" height="315"
+            src="https://www.youtube.com/embed/Lm2t4lxehUE"
+            title="PID Line Following Robot Demo"
+            frameborder="0"
+            style="border-radius:10px;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <p style="font-size:13px; color:#444; margin-top:6px;">
+            Video Credit: <strong>Abdullah Al Minhaz</strong>
+        </p>
+        </div>
+    </div>
+    </section>
+
+
+      <!-- Hardware & Software -->
+      <section style="margin-top:30px;" data-aos="fade-up">
+        <div class="row">
+          <div class="col-lg-6">
+            <h4 style="color:#085a98;">Hardware</h4>
+            <ul class="icon-list">
+              <li><i class="bx bx-microchip"></i> Microcontroller: Arduino UNO / Nano (C code for control loop)</li>
+              <li><i class="bx bx-camera"></i> Vision: Low-res camera / IR line sensors (preprocessing done on microcontroller / single-board)</li>
+              <li><i class="bx bx-car"></i> Drive: 2–4 DC motors + L298N motor driver</li>
+              <li><i class="bx bx-battery"></i> Power: Battery pack (regulated supply for MCU + motors)</li>
+              <li><i class="bx bx-tools"></i> Chassis: Custom acrylic / 3D-printed frame</li>
+            </ul>
+          </div>
+
+          <div class="col-lg-6">
+            <h4 style="color:#085a98;">Software</h4>
+            <ul class="icon-list">
+              <li><i class="bx bx-code-alt"></i> C (Arduino) for low-latency control loop and motor PWM</li>
+              <li><i class="bx bx-brain"></i> Python / OpenCV (optional) for camera preprocessing and visualization</li>
+              <li><i class="bx bx-cog"></i> PID algorithm implemented in discrete time (sampled control)</li>
+              <li><i class="bx bx-data"></i> Serial telemetry logging for tuning and post-analysis</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- PID Theory (MathJax) -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">PID Control — Short Theory</h4>
+
+        <p style="font-size:14px; text-align:justify;">
+          The PID controller computes a correction \(u(t)\) from the error \(e(t)\) (the lateral distance from the line):
+        </p>
+
+        <p style="font-size:16px; text-align:center;">
+          <script type="math/tex">\displaystyle u(t) = K_p e(t) + K_i \int_0^t e(\tau)\,d\tau + K_d \frac{d e(t)}{dt}</script>
+        </p>
+
+        <p style="font-size:14px; text-align:justify;">
+          In discrete-time (sampled at interval \(T_s\)), the controller becomes:
+        </p>
+
+        <p style="font-size:16px; text-align:center;">
+          <script type="math/tex">\displaystyle u[k] = K_p e[k] + K_i T_s \sum_{i=0}^{k} e[i] + K_d \frac{e[k] - e[k-1]}{T_s}</script>
+        </p>
+
+        <div class="tip">
+          <strong>Tip:</strong> On embedded platforms keep the integral term bounded (anti-windup) and filter the derivative (noise-sensitive).
+        </div>
+      </section>
+
+      <!-- Tuning Strategy -->
+      <section style="margin-top:26px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">PID Tuning — Practical Steps</h4>
+        <ol style="font-size:14px;">
+          <li><strong>Start with \(K_i = 0, K_d = 0\)</strong>. Increase \(K_p\) until you see sustained oscillation.</li>
+          <li><strong>Record ultimate gain \(K_u\) and period \(P_u\)</strong> (classic Ziegler–Nichols method).</li>
+          <li>Compute initial parameters (Ziegler–Nichols tuning):<br>
+            \(K_p = 0.6 K_u,\; K_i = 2 K_p / P_u,\; K_d = K_p P_u / 8\).</li>
+          <li>Refine by reducing overshoot: lower \(K_p\) or add \(K_d\). Reduce steady-state error: increase \(K_i\) carefully.</li>
+          <li>On real robot, use iterative approach with small step changes and log telemetry for offline analysis.</li>
+        </ol>
+
+        <div class="tip">
+          <strong>Practical note:</strong> For line following, derivative term helps dampen oscillations on sharp curves. However,
+          noisy sensor readings can make \(K_d\) harmful — apply a small low-pass filter to the derivative estimate.
+        </div>
+      </section>
+
+      <!-- Experiments & Observations -->
+      <section style="margin-top:26px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">Experiments & Observed Behavior</h4>
+        <p style="font-size:14px; text-align:justify;">
+          • The prototype follows gentle and medium curves reliably after initial tuning. <br>
+          • At sudden, tight turns the controller requires faster sampling or feed-forward for perfect tracking. <br>
+          • Not fully tuned: current gains provide robustness but allow small steady-state offset on high-speed sections. <br>
+          • Telemetry: logged error, u[k], and motor PWM to analyze oscillation and tune \(K_d\) and \(K_i\).
+        </p>
+      </section>
+
+      <!-- Issues & Mitigation -->
+      <section style="margin-top:22px;" data-aos="fade-up">
+        <h4 style="color:#f04e4e;">Common Issues & Fixes</h4>
+        <ul class="icon-list">
+          <li><i class="bx bx-bug"></i> <strong>Sensor noise:</strong> Apply median filter or small moving average to error signal.</li>
+          <li><i class="bx bx-tools"></i> <strong>Actuator delay:</strong> Reduce loop time or include derivative-like feed-forward on sharp curves.</li>
+          <li><i class="bx bx-thermometer"></i> <strong>Battery sag:</strong> affects motor torque — use regulated supply or compensate in control.</li>
+          <li><i class="bx bx-shield"></i> <strong>Integral windup:</strong> add anti-windup clamp on accumulated integral term.</li>
+        </ul>
+      </section>
+
+      <!-- Industrial Applications -->
+      <section style="margin-top:26px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">Industrial Applications</h4>
+        <ul class="icon-list">
+          <li><i class="bx bx-factory"></i> Warehouse AGVs (Automated Guided Vehicles) using line guidance</li>
+          <li><i class="bx bx-package"></i> Conveyor sorting systems with closed-loop position control</li>
+          <li><i class="bx bx-robot"></i> Mobile inspection robots for factories and production lines</li>
+          <li><i class="bx bx-ship"></i> Port/yard automated tuggers that follow painted tracks</li>
+          <li><i class="bx bx-car"></i> Last-mile delivery robots on demarcated routes</li>
+        </ul>
+      </section>
+
+      <!-- Contributors & Credits -->
+      <section style="margin-top:28px;" data-aos="fade-up">
+        <h4 style="color:#085a98;">Contributors</h4>
+        <div class="section-contrast" style="padding:16px;">
+          <ul class="icon-list">
+            <li><i class="bx bx-user"></i> <strong>Md Umar Faruk</strong></li>
+            <li><i class="bx bx-user"></i> <strong>Md Rajesh Chowdhury</strong></li>
+            <li><i class="bx bx-user"></i> <strong>Md Ekbal Hossain</strong> — <em>Co-Lead</em></li>
+            <li><i class="bx bx-user-pin"></i> <strong>Abdullah Al Minhaz</strong> — <em>Lead</em></li>
+          </ul>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="footer" style="margin-top:36px;">
+    <div class="container text-center">
+      <h4>PID Line Follower Robot</h4>
+      <p>Embedded Control • PID • Robotics • Real-time Systems</p>
+      <div style="margin-top:6px;color:#666;">© Abdullah Al Minhaz & contributors</div>
+    </div>
+  </footer>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    if (window.AOS) AOS.init({ duration: 800, once: true, easing: 'ease-in-out' });
+  </script>
+</body>
+</html>
